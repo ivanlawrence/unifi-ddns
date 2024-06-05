@@ -21,20 +21,21 @@ Ensure you have a Cloudflare account and your domain is configured to point to C
    - Choose **Zone:DNS:Edit** for permissions, and include your zone under "Zone Resources". 
    - Copy your API Key for later use in UniFi OS Controller configuration.
 
-#### Install With Wrangler CLI
+#### Install With Wrangler CLI (Ivan preferred)
 
 1. Clone or download this project.
 2. Ensure you have [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/install-and-update/) installed.
 3. Log in with Wrangler and run `wrangler deploy`.
 4. Note the `\*.workers.dev` route after creation.
 5. Create an API token as described above.
+Note: I got an error and had to do an `npm install` first
 
 ### Configuring UniFi OS
 
 1. Log in to your [UniFi OS Controller](https://unifi.ui.com/).
 2. Navigate to Settings > Internet > WAN and scroll down to **Dynamic DNS**.
 3. Click **Create New Dynamic DNS** and provide:
-   - `Service`: Choose `custom` or `dyndns`.
+   - `Service`: Choose `custom` or `dyndns`. (`custom` type always errored)
    - `Hostname`: Full subdomain and hostname to update (e.g., `subdomain.mydomain.com` or `mydomain.com` for root domain).
    - `Username`: Domain name containing the record (e.g., `mydomain.com`).
    - `Password`: Cloudflare API Token.
